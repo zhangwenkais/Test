@@ -1,4 +1,4 @@
-package aaa.com.Web.Controller;
+package aaa.com.Controller;
 
 public class ClientController {
     public static void main(String[] args) {
