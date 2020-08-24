@@ -1,4 +1,4 @@
-package aaa.com.Web.Entity;
+package aaa.com.Entity;
 
 public class Housing_types {
     private Integer t_id;

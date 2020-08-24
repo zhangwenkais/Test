@@ -1,4 +1,4 @@
-package aaa.com.Web.Entity;
+package aaa.com.Entity;
 
 public class Position_permission {
     private Integer fk_post_id;

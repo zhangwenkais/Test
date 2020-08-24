@@ -1,4 +1,4 @@
-package aaa.com.Web.Entity;
+package aaa.com.Entity;
 
 public class Employee_id {
     private Integer m_id;

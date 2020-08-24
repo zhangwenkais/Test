@@ -1,4 +1,4 @@
-package aaa.com.Web.Entity;
+package aaa.com.Entity;
 
 public class Role {
     private Integer r_id;
