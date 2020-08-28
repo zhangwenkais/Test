@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="aaa.com.Dao.ClientDao">
+    <select id="listAll" resultType="aaa.com.Entity.Client">
+        select * from client
+    </select>
+
+    <select id="showPageInfo" resultType="aaa.com.Entity.Client">
+        select * from client
+    </select>
+
+    <update id="update">
+        update client set cusName=#{cusName},pwd=#{pwd},telphone=#{telphone},idcard=#{idcard},email=#{email},address=#{address},photo=#{photo},state=#{state},demo=#{demo} where cus_id=#{cus_id}
+    </update>
+</mapper>

@@ -9,6 +9,7 @@ public class Client {
     private String email;
     private String address;
     private String photo;
+    private String state;
     private String demo;
 
     public Integer getCus_id() {
@@ -75,6 +76,14 @@ public class Client {
         this.photo = photo;
     }
 
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getDemo() {
         return demo;
     }
@@ -94,6 +103,7 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", photo='" + photo + '\'' +
+                ", state='" + state + '\'' +
                 ", demo='" + demo + '\'' +
                 '}';
     }
