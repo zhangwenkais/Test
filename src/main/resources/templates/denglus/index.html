@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="“www.thymeleaf.org">
+
+<!-- Head -->
+<head>
+
+    <title>登录表单</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+
+    <!-- Style -->
+    <link rel="stylesheet" href="\denglus\css\style.css" type="text/css" media="all">
+
+
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+<h1>天才房源</h1>
+
+<div class="container w3layouts agileits">
+
+    <div class="login w3layouts agileits">
+        <h2>登 录</h2>
+        <form action="/denglu/login" method="post">
+            <input type="text"  Name="cusName" placeholder="用户名" required="">
+            <input type="password"   Name="pwd" placeholder="密码" required="">
+
+            <ul class="tick w3layouts agileits">
+                <li>
+                    <input type="checkbox" id="brand1" value="">
+                    <label for="brand1"><span></span>记住我</label>
+                </li>
+            </ul>
+            <div class="send-button w3layouts agileits">
+                <input type="submit" id="getDate"  value="登 录">
+
+            </div>
+        </form>
+        <a href="#">记住密码?</a>
+        <div class="social-icons w3layouts agileits">
+            <p>- 其他方式登录 -</p>
+            <ul>
+                <li class="qq"><a href="#">
+                    <span class="icons w3layouts agileits"></span>
+                    <span class="text w3layouts agileits">QQ</span></a></li>
+                <li class="weixin w3ls"><a href="#">
+                    <span class="icons w3layouts"></span>
+                    <span class="text w3layouts agileits">微信</span></a></li>
+                <li class="weibo aits"><a href="#">
+                    <span class="icons agileits"></span>
+                    <span class="text w3layouts agileits">微博</span></a></li>
+                <div class="clear"> </div>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
+    <div class="register w3layouts agileits">
+
+        <h2>注 册</h2>
+        <form action="/denglu/register" method="post">
+            <input type="text" id="cusName1" name="cusName" placeholder="用户名" required="">
+            <input type="password" id="pwd1" name="pwd" placeholder="密码" required="">
+            <input type="text" id="telphone1" name="telphone" placeholder="手机号码" required="">
+            <button  style="background: blue" id="getCode">获取验证码</button>
+            <input type="text" id="yanzheng1" name="yanzheng" placeholder="验证码" >
+
+
+        <div class="send-button w3layouts agileits">
+
+                <input type="submit" id="register" value="免费注册">
+
+        </div>
+        </form>
+        <div class="clear"></div>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+<div class="footer w3layouts agileits">
+    <p>Copyright &copy; More Templates</p>
+</div>
+
+</body>
+<!-- //Body -->
+<script src="/denglus/layui/layui.js"></script>
+<script type="text/javascript">
+
+    layui.use(['jquery','layer'],function(){
+        window.$ =  layui.jquery;
+        var layer = layui.layer;
+
+        $("#register").click(function(){
+            var cusName = $("#cusName1").val();
+            var telphone = $("#telphone1").val();
+            var yanzheng = $("#yanzheng1").val();
+            var pwd = $("#pwd").val();
+
+            $.post("/denglu/register",{cusName:cusName,phone:telphone,yanzheng:yanzheng,pass:pwd},function(data){
+                    console.info(cusName+""+pwd)
+                if(data.success){
+
+                    window.location.reload();
+                }else{
+                    layer.msg(data.msg)
+                }
+
+            })
+
+
+
+        })
+
+        //获取验证码
+        $("#getCode").click(function(){
+            if($("#telphone").val() == ""){
+                layer.msg("请先填写手机号");
+                return;
+            }
+            var a = $("#telphone").val();
+            $.post("../denglu/getVerification",{telphone:a},function(response){
+
+                var time = 60;
+                var interval = setInterval(function () {
+                    time = time -1;
+                    if(time == 0){
+                        clearInterval(interval)
+                        $("#getCode").html("获取验证码")
+                        $("#getCode").attr("disabled",false);
+                        return;
+                    }
+                    $("#getCode").html("还剩"+time+"秒");
+                    $("#getCode").attr("disabled",true);
+                },1000)
+
+                if(response.success) {
+                    layer.msg(response.msg)
+                }else{
+                    layer.msg(response.msg)
+                }
+
+            })
+        })
+
+
+    })
+
+
+</script>
+<script type="text/javascript">
+       window.onload = function()
+         {
+                 //首先获得body中的3个input元素
+                 var msg = document.getElementById("msg");//文本框要输入的内容
+                 var msg2 = document.getElementById("msg2");//文本框要输入的内容
+                 var getData = document.getElementById("getData");//获取数据
+                 var setData = document.getElementById("setData");//保存数据
+                 //var removeData=document.getElementById("removeData");//移除数据
+                 setData.onclick = function()//存入数据
+                 {
+                         if(msg.value)
+                             {
+                                     sessionStorage.setItem("data", msg.value,msg2.value);//把data对应的值保存到sessionStorage
+                                     alert("信息已保存到data字段中");
+                             }
+                         else
+                         {
+                                     alert("信息不能为空");
+                             }
+                     }
+
+                 getData.onclick = function()//获取数据
+                 {
+                         var msg = sessionStorage.getItem("data");
+                         if(msg)
+                             {
+                                     alert("data字段中的值为：" + msg);//把data对应的值弹出来
+                             }else if(msg2){
+                             alert("data字段中的值为：" + msg2);
+                         }
+                         else
+                         {
+                                     alert("data字段无值！");
+                             }
+                     }
+                 // removeData.onclick=function() //移除数据
+                 // {
+                 //         var msg = sessionStorage.getItem("data");
+                 //         sessionStorage.removeChild(msg);
+                 //     }
+             }
+     </script>
+
+
+</html>

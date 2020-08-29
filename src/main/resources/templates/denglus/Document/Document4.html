@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://demo.erdangjiade.com/modals/44/4454/demo/html/about.html -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="../denglus/Document/Document4_files/layui.css">
+  <link rel="stylesheet" type="text/css" href="../denglus/Document/Document4_files/main.css">
+<!--加载meta IE兼容文件-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/http-vue-loader"></script>
+<script src="../templates/denglus/Document/Document_files/JS/vue.js"></script>
+<![endif]-->
+<link id="layuicss-layer" rel="stylesheet" href="../denglus/Document/Document4_files/layer.css" media="all"></head>
+<body>
+  <div class="header">
+    <div class="menu-btn">
+      <div class="menu"></div>
+    </div>
+    <h1 class="logo">
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/index.html">
+        <span>MYBLOG</span>
+        <img src="../denglus/Document/Document4_files/logo.png">
+      </a>
+    </h1>
+    <div class="nav">
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/index.html">文章</a>
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/whisper.html">微语</a>
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/leacots.html">留言</a>
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/album.html">相册</a>
+      <a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/about.html" class="active">关于</a>
+    </div>
+    <ul class="layui-nav header-down-nav">
+      <li class="layui-nav-item"><a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/index.html">文章</a></li>
+      <li class="layui-nav-item"><a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/whisper.html">微语</a></li>
+      <li class="layui-nav-item"><a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/leacots.html">留言</a></li>
+      <li class="layui-nav-item"><a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/album.html">相册</a></li>
+      <li class="layui-nav-item"><a href="http://demo.erdangjiade.com/modals/44/4454/demo/html/about.html" class="active">关于</a></li>
+    <span class="layui-nav-bar"></span></ul>
+    <p class="welcome-text">
+      欢迎来到<span class="name" style="color: mediumpurple"><Span th:text="${client.getCusName()}"></Span></span>的主页
+    </p>
+  </div>
+
+  <div class="about-content">
+    <div class="w1000">
+      <div class="item info">
+        <div class="title">
+          <h3>我的介绍</h3>
+        </div>
+        <div class="cont">
+          <img src="../denglus/Document/Document4_files/xc_img1.jpg">
+          <div class="per-info">
+            <p style="line-height: 30px">
+
+              <span class="address">姓名：<Span th:text="${client.getCusName()}"></Span></span><br>
+              <span class="address">住址：<Span th:text="${client.getAddress()}"></Span></span><br>
+              <span class="age">Email：<Span th:text="${client.getEmail()}"></Span></span><br>
+              <span class="age">身份证：<Span th:text="${client.getIdcard()}"></Span></span><br>
+              <span class="age">状态：<Span th:text="${client.getState()}"></状态Span></span><br>
+              <span class="age">联系电话：<Span th:text="${client.getTelphone()}"></Span></span><br>
+              <span class="age">备注：<Span th:text="${client.getDemo()}"></Span></span><br>
+
+              </span>
+            </p>
+          </div>
+
+        </div>
+        <span class="age"> <input type="button" value="修改个人信息"></span>
+        <span class="age"> <input type="button" value="查看发布信息"></span>
+      </div>
+
+    </div>
+  </div>
+  <div class="item tool">
+    <template>
+      <script>
+        new Vue({
+
+          el:"#app",//预留填坑位置，比如html页面有一个<div id='app'></div>的元素
+
+          tempate:"<div>你好</div>"
+
+        })
+      </script>
+      <button value="查看" id=""></button>
+    </template>
+  </div>
+
+</div>
+
+
+
+</body></html>

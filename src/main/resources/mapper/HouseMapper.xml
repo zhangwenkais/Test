@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="aaa.com.Dao.HouseDao">
+    <resultMap id="house" type="aaa.com.Entity.House_info">
+        <id column="h_id" property="h_id"></id>
+        <result column="flors" property="flors"></result>
+        <result column="counts" property="counts"></result>
+        <result column="type_room" property="type_room"></result>
+        <result column="type_hall" property="type_hall"></result>
+        <result column="type_toilet" property="type_toilet"></result>
+        <result column="fitment" property="fitment"></result>
+        <result column="area" property="area"></result>
+        <result column="year" property="year"></result>
+        <result column="land" property="land"></result>
+        <result column="deal" property="deal"></result>
+        <result column="create" property="create"></result>
+        <result column="cases" property="cases"></result>
+        <result column="facility" property="facility"></result>
+        <result column="images" property="images"></result>
+        <result column="letset" property="letset"></result>
+        <result column="state" property="state"></result>
+        <result column="hmoney" property="hmoney"></result>
+        <result column="province" property="province"></result>
+        <result column="city" property="city"></result>
+        <result column="county" property="county"></result>
+    </resultMap>
+    <select id="showHouse" resultMap="house">
+                select h.flors,h.counts,h.type_room,
+                      h.type_hall,h.type_toilet,h.fitment,
+                      h.area,h.year,h.land,h.deal,h.create,h.cases,h.facility,
+                      h.images,h.letset,h.state,h.hmoney,h.province,h.city,h.county
+                      from house_info h WHERE h.province LIKE concat('%','${param1}','%')
+					  AND  h.city Like concat('%','${param2}','%') And h.county LIKE concat('%','${param3}','%')
+
+    </select>
+</mapper>

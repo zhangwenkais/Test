@@ -23,16 +23,37 @@ public class House_info {
     private Integer letset;
     private Integer state;
     private Integer h_cusid;
+    //private String dateissued;//date issued
     private String hmoney;
-
     private String province;
     private String city;
-    private String couty;
+    private String county;
 
-    private Village_name village_name;
-    private Area areas;
-    private Housing_types housing;
-    private Client client;
+
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
 
     public Integer getH_id() {
         return h_id;
@@ -202,7 +223,6 @@ public class House_info {
         this.h_cusid = h_cusid;
     }
 
-
     public String getHmoney() {
         return hmoney;
     }
@@ -211,61 +231,6 @@ public class House_info {
         this.hmoney = hmoney;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getCouty() {
-        return couty;
-    }
-
-    public void setCouty(String couty) {
-        this.couty = couty;
-    }
-
-    public Village_name getVillage_name() {
-        return village_name;
-    }
-
-    public void setVillage_name(Village_name village_name) {
-        this.village_name = village_name;
-    }
-
-    public Area getAreas() {
-        return areas;
-    }
-
-    public void setAreas(Area areas) {
-        this.areas = areas;
-    }
-
-    public Housing_types getHousing() {
-        return housing;
-    }
-
-    public void setHousing(Housing_types housing) {
-        this.housing = housing;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     @Override
     public String toString() {
@@ -294,11 +259,7 @@ public class House_info {
                 ", hmoney='" + hmoney + '\'' +
                 ", province='" + province + '\'' +
                 ", city='" + city + '\'' +
-                ", couty='" + couty + '\'' +
-                ", village_name=" + village_name +
-                ", areas=" + areas +
-                ", housing=" + housing +
-                ", client=" + client +
+                ", county='" + county + '\'' +
                 '}';
     }
 }

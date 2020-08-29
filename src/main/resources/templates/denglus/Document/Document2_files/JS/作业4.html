@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../js/vue.min.js"></script>
+		<script src="../js/jquery-3.1.1.js"></script>
+	</head>
+	<body>
+		<div id="d">
+		    {{stu}}
+		    <hr/>
+		    province:
+		    <select v-model="stu.province">
+		        <option v-for="p in provinces" :value="p.val">{{p.text}}</option>
+		    </select>
+		    city：
+		    <select v-model="stu.city">
+		        <option value="0">请选择</option>
+		        <option v-for="c in pro_city" :value="c.val">{{c.text}}</option>
+		    </select>
+		</div>
+		
+		<script>
+		    let provinces = [
+		        {val:"hn",text:"河南"},
+		        {val:"hb",text:"河北"},
+		        {val:"sd",text:"山东"},
+		    ]
+		
+		    let citys = [
+		        {province:"hn",list:[{val:"zz",text:"郑州"},{val:"ny",text:"南阳"}]},
+		        {province:"hb",list:[{val:"sjz",text:"石家庄"},{val:"ts",text:"唐山"}]},
+		        {province:"sd",list:[{val:"jn",text:"济南"},{val:"ny",text:"南阳"}]},
+		    ]
+		
+		    let pro_city = [{val:"sjz",text:"石家庄"},{val:"ts",text:"唐山"}];
+		
+		    let data = {
+		        stu:{province:"hb",city:"ts"}
+		    }
+		
+		    let vm = new Vue({
+		        el: "#d",
+		        data: data,
+		        watch:{
+		            "stu.province":function(newVal){
+		                pro_city = citys.find(item=>item.province==newVal).list;
+		                this.stu.city = "0";
+		            }
+		        }
+		    })
+		</script>
+	</body>
+<html>

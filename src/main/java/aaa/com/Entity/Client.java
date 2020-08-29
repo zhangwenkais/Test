@@ -1,16 +1,49 @@
 package aaa.com.Entity;
 
+import lombok.Data;
+
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+@Table(name = "Client")
 public class Client {
+    @Id
+    @Column
+
     private  Integer cus_id;
+    @Column
     private String cusName;
+    @Column
     private String pwd;
+    @Column
     private long telphone;
+    @Column
     private String idcard;
+    @Column
     private String email;
+    @Column
     private String address;
+    @Column
     private String photo;
-    private String state;
+    @Column
     private String demo;
+    private String state;
+
+    public Client(String cusName, String pwd) {
+        this.cusName = cusName;
+        this.pwd = pwd;
+    }
+
+    public Client() {
+
+    }
+
 
     public Integer getCus_id() {
         return cus_id;
@@ -76,6 +109,14 @@ public class Client {
         this.photo = photo;
     }
 
+    public String getDemo() {
+        return demo;
+    }
+
+    public void setDemo(String demo) {
+        this.demo = demo;
+    }
+
     public String getState() {
         return state;
     }
@@ -84,13 +125,6 @@ public class Client {
         this.state = state;
     }
 
-    public String getDemo() {
-        return demo;
-    }
-
-    public void setDemo(String demo) {
-        this.demo = demo;
-    }
 
     @Override
     public String toString() {
@@ -103,8 +137,8 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", photo='" + photo + '\'' +
-                ", state='" + state + '\'' +
                 ", demo='" + demo + '\'' +
+                ", state='" + state + '\'' +
                 '}';
     }
 }
